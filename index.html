@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Feedback</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Segoe UI', Arial;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* Background Image with Transparency */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%; 
+background:url("background.jpeg") no-repeat center/cover;
+opacity:0.5;
+z-index:-1;
+}
+
+/* Glass Card */
+.container{
+width:90%;
+max-width:420px;
+background: rgba(255,255,255,0.95);
+padding:25px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.logo{
+text-align:center;
+margin-bottom:10px;
+}
+
+.logo img{
+width:110px;
+}
+
+h2{
+text-align:center;
+margin-bottom:15px;
+color:#333;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin-top:12px;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:15px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:18px;
+background:#25D366;
+border:none;
+color:white;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#1ebe5d;
+}
+
+/* Enterprise Details */
+.details{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid #ddd;
+font-size:14px;
+color:#555;
+line-height:1.6;
+}
+
+.details b{
+color:#222;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<img src="logo.png" alt="Logo">
+</div>
+
+<h2>⭐ Service Feedback ⭐</h2>
+
+<input id="name" placeholder="Your Name">
+
+<select id="rating">
+<option>⭐⭐⭐⭐⭐ Excellent</option>
+<option>⭐⭐⭐⭐ Good</option>
+<option>⭐⭐⭐ Average</option>
+<option>⭐⭐ Needs Improvement</option>
+<option>⭐ Poor</option>
+</select>
+
+<textarea id="msg" rows="4" placeholder="Write your feedback"></textarea>
+
+<button onclick="send()">📩 Send Feedback to WhatsApp</button>
+
+<div class="details">
+<b>Enterprise Details</b><br>
+📍 iRepair Technical Services<br>
+📞 Phone: +91 6303734194<br>
+✉ Email: irepairtechnicalservices@gmail.com<br>
+🏢 Address: Balaji Nagar-1,RD.No.7,Kadapa-516003
+</div>
+
+</div>
+
+<script>
+function send(){
+
+let name=document.getElementById("name").value;
+let rating=document.getElementById("rating").value;
+let msg=document.getElementById("msg").value;
+
+let text = `Customer Feedback:%0A%0AName: ${name}%0ARating: ${rating}%0AFeedback: ${msg}`;
+
+window.open("https://wa.me/916303734194?text="+text);
+}
+</script>
+
+</body>
+</html>
